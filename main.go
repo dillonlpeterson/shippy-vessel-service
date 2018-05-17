@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	pb "bitbucket.org/dillonlpeterson/shippy/vessel-service/proto/vessel"
+	pb "github.com/dillonlpeterson/shippy-vessel-service/proto/vessel"
 	micro "github.com/micro/go-micro"
 	"golang.org/x/net/context"
 )

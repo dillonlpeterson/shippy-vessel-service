@@ -4,7 +4,7 @@
 FROM golang:1.9.0 as builder 
 
 # Set our workdir to our current service in the gopath
-WORKDIR /go/src/bitbucket.org/dillonlpeterson/shippy/vessel-service
+WORKDIR /go/src/github.com/dillonlpeterson/shippy-vessel-service
 
 # Copy the current directory into our workdir 
 COPY . .
@@ -34,9 +34,9 @@ WORKDIR /app
 #ADD consignment-service /app/consignment-service 
 # Instead of pulling binary from Host machine, we pill it from the container named builder!
 # Copies into /app directory, which is the current working directory.
-COPY --from=builder /go/src/bitbucket.org/dillonlpeterson/shippy/vessel-service/vessel-service .
+COPY --from=builder /go/src/github.com/dillonlpeterson/shippy-vessel-service/vessel-service .
 
 # As usual, run the binary!
-CMD ["./consignment-service"]
+CMD ["./vessel-service"]
 
 # Code must be pushed up to Git so that it can pull in other services.
