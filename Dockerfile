@@ -35,9 +35,9 @@ WORKDIR /app
 # Instead of pulling binary from Host machine, we pill it from the container named builder!
 # Copies into /app directory, which is the current working directory.
 # When go builds, it makes an executable with the name of the package that it is in!!
-COPY --from=builder /go/src/github.com/dillonlpeterson/shippy-vessel-service/shippy-vessel-service .
+COPY --from=builder /go/src/github.com/dillonlpeterson/shippy-vessel-service .
 
 # As usual, run the binary!
-CMD ["./vessel-service"]
+CMD ["./shippy-vessel-service"]
 
 # Code must be pushed up to Git so that it can pull in other services.
