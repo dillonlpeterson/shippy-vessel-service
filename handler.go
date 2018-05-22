@@ -7,7 +7,7 @@ import (
 )
 
 type service struct {
-	session *mgo.session
+	session *mgo.Session
 }
 
 func (s *service) GetRepo() Repository {
