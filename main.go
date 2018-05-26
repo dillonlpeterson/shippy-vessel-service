@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	defaultHost = "localhost:27017"
+	defaultHost = "127.0.0.1"
 )
 
 func createDummyData(repo Repository) {
