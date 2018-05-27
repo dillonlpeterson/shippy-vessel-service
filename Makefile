@@ -3,7 +3,11 @@ build:
 	# Builds into this 
 	docker build -t vessel-service .
 	#docker push dillonlpeterson/vessel:latest
+	# -d means run contains in background 
 run:
-	docker run -d --net="host" \
+	docker run --net="host" \
 		-p 50053 \
-		-e MICRO_SERVER_ADDRESS=:50053  -e MICRO_REGISTRY=mdns -e DB_HOST=localhost:27017 vessel-service
+		-e MICRO_SERVER_ADDRESS=:50053 \
+		-e MICRO_REGISTRY=mdns \
+		-e DB_HOST=localhost:27017 \
+		vessel-service
