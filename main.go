@@ -7,6 +7,7 @@ import (
 
 	pb "github.com/dillonlpeterson/shippy-vessel-service/proto/vessel"
 	micro "github.com/micro/go-micro"
+	_ "github.com/micro/go-plugins/registry/mdns"
 )
 
 const (
