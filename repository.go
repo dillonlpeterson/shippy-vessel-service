@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	pb "github.com/dillonlpeterson/shippy-vessel-service/proto/vessel"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -26,7 +28,7 @@ type VesselRepository struct {
 // then return that vessel
 func (repo *VesselRepository) FindAvailable(spec *pb.Specification) (*pb.Vessel, error) {
 	var vessel *pb.Vessel
-
+	log.Println("GERE WUFFH FHHFH")
 	// Here we define a more complex query than our consignment-service's
 	// GetAll function. Here we're asking for a vessel who's max weight and
 	// capacity are greater than and equal to the given capacity and weight.
