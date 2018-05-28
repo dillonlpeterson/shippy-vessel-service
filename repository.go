@@ -40,6 +40,7 @@ func (repo *VesselRepository) FindAvailable(spec *pb.Specification) (*pb.Vessel,
 	if err != nil {
 		return nil, err
 	}
+	log.Println("Found a vessel")
 	return vessel, err
 }
 
