@@ -8,6 +8,7 @@ import (
 	pb "github.com/dillonlpeterson/shippy-vessel-service/proto/vessel"
 	micro "github.com/micro/go-micro"
 	_ "github.com/micro/go-plugins/registry/mdns"
+	k8s "github.com/micro/kubernetes/go/micro"
 )
 
 const (
@@ -42,7 +43,11 @@ func main() {
 
 	createDummyData(repo)
 
-	srv := micro.NewService(
+	// Offloads service discovery entirely to Kubernetes. Mirco library with sensible defaults for
+	// Kubernetes, and a service selector which integrates directly on-top of Kubernetes services.
+	// Default to use gRPC as the default transport. Behaviors can be overrided using environment variables
+	// and plugins too.
+	srv := k8s.NewService(
 		micro.Name("shippy.vessel"),
 		micro.Version("latest"),
 	)
