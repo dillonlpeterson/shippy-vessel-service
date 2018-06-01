@@ -2,7 +2,7 @@ build:
 	protoc -I. --go_out=plugins=micro:. proto/vessel/vessel.proto 
 	# Builds into this 
 	#docker build -t vessel-service .
-	docker build -t us.gcr.io/shippy-freight/vessel-service:latest . 
+	docker build -t us.gcr.io/shippy-freight/vessel:latest . 
 	docker push us.gcr.io/shippy-freight/vessel:latest
 	#docker push dillonlpeterson/vessel:latest
 	# -d means run contains in background 
