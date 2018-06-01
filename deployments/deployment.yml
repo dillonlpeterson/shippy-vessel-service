@@ -14,7 +14,7 @@ spec:
     spec:
         containers:
         - name: vessel-service
-          image: eu.gcr.io/shippy-freight/vessel-service:latest
+          image: us.gcr.io/shippy-freight/vessel-service:latest
           imagePullPolicy: Always
           command: [
             "./shippy-vessel-service",
