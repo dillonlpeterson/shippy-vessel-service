@@ -14,18 +14,18 @@ spec:
     spec:
         containers:
         - name: vessel-service
-          image: us.gcr.io/shippy-freight-205815/vessel-service:latest
+          image: eu.gcr.io/shippy-freight/vessel:latest
           imagePullPolicy: Always
           command: [
             "./shippy-vessel-service",
             "--selector=static",
-            "--server_address=:8080",
+            "--server_address=:8080"
           ]
           env:
           - name: DB_HOST
             value: "mongo:27017"
           - name: UPDATED_AT
-            value: "Mon 19 Mar 2018 12:05:58 GMT"
+            value: "{{ UPDATED_AT }}"
           ports:
           - containerPort: 8080
             name: vessel-port

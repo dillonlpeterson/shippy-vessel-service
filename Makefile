@@ -2,8 +2,8 @@ build:
 	protoc -I. --go_out=plugins=micro:. proto/vessel/vessel.proto 
 	# Builds into this 
 	#docker build -t vessel-service .
-	docker build -t us.gcr.io/shippy-freight/vessel:latest . 
-	docker push us.gcr.io/shippy-freight/vessel:latest
+	docker build -t us.gcr.io/shippy-freight-205815/vessel:latest . 
+	docker push us.gcr.io/shippy-freight-205815/vessel:latest
 	#docker push dillonlpeterson/vessel:latest
 	# -d means run contains in background 
 run:
@@ -13,3 +13,8 @@ run:
 		-e MICRO_REGISTRY=mdns \
 		-e DB_HOST=localhost:27017 \
 		vessel-service
+
+// shippy-vessel-service/Makefile
+deploy:
+	sed "s/{{ UPDATED_AT }}/$(shell date)/g" ./deployments/deployment.tmpl > ./deployments/deployment.yml
+	kubectl replace -f ./deployments/deployment.yml
